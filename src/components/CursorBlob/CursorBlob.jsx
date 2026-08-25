@@ -48,11 +48,9 @@ function CursorBlob() {
         style={{ x, y }}
         aria-hidden="true"
       />
-      <motion.div
-        className={[styles.ring, isActive ? styles.ringActive : ''].join(' ')}
-        style={{ x: ringX, y: ringY }}
-        aria-hidden="true"
-      />
+      <motion.div className={styles.ringWrap} style={{ x: ringX, y: ringY }} aria-hidden="true">
+        <span className={[styles.ring, isActive ? styles.ringActive : ''].join(' ')} />
+      </motion.div>
     </>
   )
 }

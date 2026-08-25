@@ -22,24 +22,45 @@
   margin: -6px;
 }
 
-.ring {
+.ringWrap {
   position: fixed;
   top: 0;
   left: 0;
+  pointer-events: none;
+  z-index: 299;
+}
+
+.ring {
+  display: block;
   width: 44px;
   height: 44px;
   margin: -22px;
   border-radius: 50%;
   border: 1px solid var(--color-cream-text);
-  pointer-events: none;
-  z-index: 299;
   mix-blend-mode: difference;
   opacity: 0.85;
+  animation: ringBreathe 2.6s ease-in-out infinite;
   transition:
     width var(--duration-fast) var(--ease-out),
     height var(--duration-fast) var(--ease-out),
     margin var(--duration-fast) var(--ease-out),
     opacity var(--duration-fast) var(--ease-out);
+}
+
+@keyframes ringBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring {
+    animation: none;
+  }
 }
 
 .ringActive {
@@ -51,7 +72,7 @@
 
 @media (max-width: 900px), (hover: none), (pointer: coarse) {
   .dot,
-  .ring {
+  .ringWrap {
     display: none;
   }
 }

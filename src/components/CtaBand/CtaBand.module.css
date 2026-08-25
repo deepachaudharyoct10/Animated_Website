@@ -1,0 +1,98 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-xl);
+  background: var(--color-bg);
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42rem;
+  height: 42rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-gold-soft) 0%, transparent 68%);
+  opacity: 0.7;
+  pointer-events: none;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow {
+    animation: none;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding-inline: var(--container-pad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-h1);
+  color: var(--color-ink);
+}
+
+.body {
+  color: var(--color-ink-soft);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  max-width: 36ch;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  margin-top: var(--space-sm);
+  padding: 0.95rem 2.4rem;
+  border: 1.5px solid var(--color-ink);
+  border-radius: var(--radius-pill);
+}
+
+.buttonLabel {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.button:hover .buttonLabel {
+  color: var(--color-cream-text);
+}
+
+.buttonFill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--color-ink);
+  transform: scaleX(0);
+  transform-origin: 0% 50%;
+}
