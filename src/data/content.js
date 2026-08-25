@@ -36,8 +36,9 @@ export const hero = {
   eyebrowLabel: 'Years of Legacy',
   logo: logoMadhusudan,
   cta: { label: 'Learn More', href: 'https://murec.com/about.php' },
-  // Original background video, streamed directly from murec.com and lazy-loaded on view.
-  videoSrc: 'https://murec.com/images/Vid2.mp4',
+  // Self-hosted (not hotlinked from murec.com — cross-origin video loading
+  // proved unreliable in production), lazy-loaded once scrolled into view.
+  videoSrc: '/videos/hero-banner.mp4',
 }
 
 // Reusable alternating "story" sections — Legacy, Principles, Collection, Design Philosophy.
@@ -49,7 +50,7 @@ export const storySections = [
     highlight: 'BEYOND COMPARE',
     body: 'For over seven decades, we stood for perseverance, integrity, and nation-building through enterprise. Every step was guided by one oath: quality before profit, trust before everything.',
     cta: { label: 'Our History', href: 'https://murec.com/legacy.php' },
-    videoSrc: 'https://murec.com/images/m1.mp4',
+    videoSrc: '/videos/legacy.mp4',
   },
   {
     id: 'principles',
@@ -58,7 +59,7 @@ export const storySections = [
     highlight: 'PRINCIPLES',
     body: 'MUREC is guided by values that shape every decision—building trust, delivering quality, practicing transparency, and embracing innovation as the foundation of everything we create.',
     cta: { label: 'Explore More', href: 'https://murec.com/principles.php' },
-    videoSrc: 'https://murec.com/images/v2.mp4',
+    videoSrc: '/videos/principles.mp4',
   },
   {
     id: 'collection',
@@ -67,7 +68,7 @@ export const storySections = [
     highlight: 'COLLECTION',
     body: 'A portfolio shaped by legacy and guided by vision, the MUREC Collection is where every project reflects our way of building.',
     cta: { label: 'Discover More', href: 'https://murec.com/Forest-Walk.php' },
-    videoSrc: 'https://murec.com/images/v3.mp4',
+    videoSrc: '/videos/collection.mp4',
   },
   {
     id: 'philosophy',
@@ -76,7 +77,7 @@ export const storySections = [
     highlight: 'DESIGN PHILOSOPHY',
     body: 'The first MUREC collection is envisioned to align with the IGBC certification standards, reflecting a commitment to responsible development. From efficient resource planning to healthier living environments, the project integrates sustainability as a core design principle, thoughtfully, quietly, and with long-term impact in mind.',
     cta: { label: 'Discover More', href: 'https://murec.com/Design-Philosophy.php' },
-    videoSrc: 'https://murec.com/images/home.mp4',
+    videoSrc: '/videos/philosophy.mp4',
   },
 ]
 
