@@ -80,6 +80,8 @@ export const storySections = [
   },
 ]
 
+export const associationsHeading = 'Our Associations'
+
 export const associations = [
   { src: association01, alt: 'Associate organization logo' },
   { src: association02, alt: 'Associate organization logo' },
