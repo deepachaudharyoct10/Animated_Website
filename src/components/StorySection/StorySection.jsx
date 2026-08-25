@@ -29,9 +29,9 @@ function StorySection({ section, index, total }) {
     target: sectionRef,
     offset: ['start end', 'end start'],
   })
-  const tiltRange = prefersReducedMotion ? [0, 0, 0] : [10, 0, -10]
-  const tiltRangeY = prefersReducedMotion ? [0, 0, 0] : isReversed ? [-6, 0, 6] : [6, 0, -6]
-  const parallaxRange = prefersReducedMotion ? [0, 0] : [50, -50]
+  const tiltRange = prefersReducedMotion ? [0, 0, 0] : [26, 0, -26]
+  const tiltRangeY = prefersReducedMotion ? [0, 0, 0] : isReversed ? [-16, 0, 16] : [16, 0, -16]
+  const parallaxRange = prefersReducedMotion ? [0, 0] : [80, -80]
   const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], tiltRange)
   const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], tiltRangeY)
   const parallaxY = useTransform(scrollYProgress, [0, 1], parallaxRange)
