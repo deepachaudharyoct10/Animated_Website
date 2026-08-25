@@ -1,9 +1,90 @@
 .section {
+  position: relative;
+  overflow: hidden;
   padding-block: var(--space-xl);
-  background: var(--color-bg);
+  background: radial-gradient(130% 100% at 50% 0%, #241f16 0%, #15130f 62%);
+}
+
+.blobs {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.blobGold {
+  width: 26rem;
+  height: 26rem;
+  left: -6rem;
+  top: -8rem;
+  background: radial-gradient(circle, #c99a4c 0%, transparent 70%);
+  animation: driftA 13s ease-in-out infinite alternate;
+}
+
+.blobRose {
+  width: 22rem;
+  height: 22rem;
+  right: -4rem;
+  top: 4rem;
+  background: radial-gradient(circle, #d98a70 0%, transparent 70%);
+  animation: driftB 16s ease-in-out infinite alternate;
+}
+
+.blobTeal {
+  width: 24rem;
+  height: 24rem;
+  left: 38%;
+  bottom: -12rem;
+  background: radial-gradient(circle, #4fa393 0%, transparent 70%);
+  animation: driftC 11s ease-in-out infinite alternate;
+}
+
+@keyframes driftA {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(6rem, 4rem) scale(1.15);
+  }
+}
+
+@keyframes driftB {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-5rem, 5rem) scale(0.9);
+  }
+}
+
+@keyframes driftC {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(4rem, -3rem) scale(1.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   max-width: var(--container-width);
   margin: 0 auto;
   padding-inline: var(--container-pad);
@@ -21,6 +102,7 @@
 .heading {
   text-align: center;
   font-size: var(--fs-h1);
+  color: var(--color-cream-text);
   margin-bottom: var(--space-lg);
 }
 

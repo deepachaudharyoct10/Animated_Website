@@ -14,6 +14,12 @@ const fadeUp = (i) => ({
 function Testimonials() {
   return (
     <section className={styles.section}>
+      <div className={styles.blobs} aria-hidden="true">
+        <span className={`${styles.blob} ${styles.blobGold}`} />
+        <span className={`${styles.blob} ${styles.blobRose}`} />
+        <span className={`${styles.blob} ${styles.blobTeal}`} />
+      </div>
+
       <div className={styles.inner}>
         <motion.p
           className={styles.eyebrow}
