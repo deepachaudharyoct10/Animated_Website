@@ -39,7 +39,7 @@ function Counter() {
 }
 
 function Hero() {
-  const { videoRef } = useLazyVideo(hero.videoSrc)
+  const { videoRef } = useLazyVideo(hero.videoSrc, { playbackRate: 1.3 })
   const words = brand.fullName.split(' ')
 
   return (

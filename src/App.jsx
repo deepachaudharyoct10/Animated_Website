@@ -2,13 +2,16 @@ import Header from './components/Header/Header.jsx'
 import Hero from './components/Hero/Hero.jsx'
 import StorySection from './components/StorySection/StorySection.jsx'
 import AssociationsMarquee from './components/AssociationsMarquee/AssociationsMarquee.jsx'
+import Testimonials from './components/Testimonials/Testimonials.jsx'
 import Footer from './components/Footer/Footer.jsx'
+import CursorBlob from './components/CursorBlob/CursorBlob.jsx'
 import { storySections } from './data/content.js'
 import styles from './App.module.css'
 
 function App() {
   return (
     <>
+      <CursorBlob />
       <Header />
       <Hero />
       {storySections.map((section, index) => (
@@ -20,12 +23,10 @@ function App() {
         />
       ))}
       <AssociationsMarquee />
+      <Testimonials />
       <main className={styles.placeholder}>
         <p className={styles.eyebrow}>MUREC × Timeless</p>
-        <h1 className={styles.heading}>More sections land next.</h1>
-        <p className={styles.copy}>
-          Testimonials and the closing CTA come in the following commits.
-        </p>
+        <h1 className={styles.heading}>The closing CTA lands next.</h1>
       </main>
       <Footer />
     </>

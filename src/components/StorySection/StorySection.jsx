@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { useLazyVideo } from '../../hooks/useLazyVideo.js'
 import ArrowLink from '../ArrowLink/ArrowLink.jsx'
 import styles from './StorySection.module.css'
@@ -19,11 +20,27 @@ const revealMedia = {
 }
 
 function StorySection({ section, index, total }) {
-  const { videoRef } = useLazyVideo(section.videoSrc)
+  const { videoRef } = useLazyVideo(section.videoSrc, { playbackRate: 1.3 })
   const isReversed = index % 2 === 1
+  const sectionRef = useRef(null)
+  const prefersReducedMotion = useReducedMotion()
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+  const tiltRange = prefersReducedMotion ? [0, 0, 0] : [10, 0, -10]
+  const tiltRangeY = prefersReducedMotion ? [0, 0, 0] : isReversed ? [-6, 0, 6] : [6, 0, -6]
+  const parallaxRange = prefersReducedMotion ? [0, 0] : [50, -50]
+  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], tiltRange)
+  const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], tiltRangeY)
+  const parallaxY = useTransform(scrollYProgress, [0, 1], parallaxRange)
 
   return (
-    <section className={[styles.section, isReversed ? styles.reversed : ''].join(' ')}>
+    <section
+      ref={sectionRef}
+      className={[styles.section, isReversed ? styles.reversed : ''].join(' ')}
+    >
       <div className={styles.inner}>
         <motion.div
           className={styles.media}
@@ -31,6 +48,7 @@ function StorySection({ section, index, total }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
+          style={{ rotateX, rotateY, y: parallaxY }}
         >
           <span className={styles.mediaFrame} aria-hidden="true" />
           <div className={styles.mediaBox}>

@@ -16,7 +16,7 @@
   z-index: -2;
   background: linear-gradient(155deg, #241f16 0%, #15130f 45%, #2a2013 100%);
   background-size: 200% 200%;
-  animation: drift 18s ease-in-out infinite alternate;
+  animation: drift 11s ease-in-out infinite alternate;
 }
 
 @keyframes drift {
@@ -35,7 +35,7 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  animation: kenburns 24s ease-in-out infinite alternate;
+  animation: kenburns 14s ease-in-out infinite alternate;
   transition: opacity 1.2s var(--ease-out);
 }
 

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 // Loads a background video's `src` only once the element scrolls near the
 // viewport, and skips it entirely for prefers-reduced-motion — keeps the
 // initial payload light without giving up the cinematic backgrounds.
-export function useLazyVideo(src) {
+export function useLazyVideo(src, { playbackRate = 1 } = {}) {
   const videoRef = useRef(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -21,6 +21,7 @@ export function useLazyVideo(src) {
           if (!entry.isIntersecting) return
           node.src = src
           node.load()
+          node.playbackRate = playbackRate
           const playPromise = node.play()
           if (playPromise) playPromise.catch(() => {})
           setIsLoaded(true)
@@ -32,7 +33,7 @@ export function useLazyVideo(src) {
 
     observer.observe(node)
     return () => observer.disconnect()
-  }, [src])
+  }, [src, playbackRate])
 
   return { videoRef, isLoaded }
 }

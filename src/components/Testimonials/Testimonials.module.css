@@ -1,0 +1,104 @@
+.section {
+  padding-block: var(--space-xl);
+  background: var(--color-bg);
+}
+
+.inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-inline: var(--container-pad);
+}
+
+.eyebrow {
+  text-align: center;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-2xs);
+}
+
+.heading {
+  text-align: center;
+  font-size: var(--fs-h1);
+  margin-bottom: var(--space-lg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  align-items: stretch;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+.quoteMark {
+  position: absolute;
+  top: -0.06em;
+  right: 0.5em;
+  font-family: var(--font-display);
+  font-size: 7rem;
+  line-height: 1;
+  color: var(--color-gold-soft);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.person {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.photo {
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 4px var(--color-bg), 0 0 0 5px var(--color-gold-soft);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.quote {
+  position: relative;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+  flex-grow: 1;
+}
+
+.brandLogo {
+  height: 1.6rem;
+  width: auto;
+  max-width: 60%;
+  object-fit: contain;
+  object-position: left center;
+  opacity: 0.9;
+  align-self: flex-start;
+}

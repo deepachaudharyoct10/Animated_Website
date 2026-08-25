@@ -90,6 +90,8 @@ export const associations = [
   { src: association05, alt: 'Associate organization logo' },
 ]
 
+export const testimonialsHeading = 'From our Partners'
+
 export const testimonials = [
   {
     name: 'Bobby Mukherrji',

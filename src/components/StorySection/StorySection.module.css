@@ -11,11 +11,14 @@
   grid-template-columns: 1.05fr 0.95fr;
   gap: clamp(2.5rem, 6vw, 6rem);
   align-items: center;
+  perspective: 1400px;
 }
 
 .media {
   order: 1;
   position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .mediaFrame {
@@ -49,6 +52,22 @@
 
 .mediaBox video[src] {
   opacity: 1;
+  animation: storyKenburns 13s ease-in-out infinite alternate;
+}
+
+@keyframes storyKenburns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mediaBox video[src] {
+    animation: none;
+  }
 }
 
 .text {
