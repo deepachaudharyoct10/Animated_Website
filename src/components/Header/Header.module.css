@@ -1,0 +1,119 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  background: transparent;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.header.scrolled {
+  background: rgba(247, 242, 233, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--color-line);
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-gold);
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+}
+
+.inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--space-xs) var(--container-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.logo img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.phone {
+  margin-right: auto;
+  margin-left: var(--space-lg);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--color-ink-soft);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.phone:hover {
+  color: var(--color-gold);
+}
+
+@media (max-width: 720px) {
+  .phone {
+    display: none;
+  }
+}
+
+.menuBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-3xs) var(--space-2xs);
+}
+
+.menuLabel {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.burger {
+  position: relative;
+  width: 26px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.burger span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--color-ink);
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    top var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.burger span:first-child {
+  top: 0;
+}
+
+.burger span:last-child {
+  top: 100%;
+  transform: translateY(-100%);
+}
+
+.burgerOpen span:first-child {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.burgerOpen span:last-child {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
