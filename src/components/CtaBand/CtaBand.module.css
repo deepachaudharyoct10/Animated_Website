@@ -71,6 +71,7 @@
   padding: 0.95rem 2.4rem;
   border: 1.5px solid var(--color-ink);
   border-radius: var(--radius-pill);
+  background: var(--color-ink);
 }
 
 .buttonLabel {
@@ -80,19 +81,54 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-ink);
+  color: var(--color-cream-text);
   transition: color var(--duration-fast) var(--ease-out);
 }
 
 .button:hover .buttonLabel {
-  color: var(--color-cream-text);
+  color: var(--color-ink);
 }
 
 .buttonFill {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: var(--color-ink);
-  transform: scaleX(0);
-  transform-origin: 0% 50%;
+  background: linear-gradient(
+    115deg,
+    #ff5f6d,
+    #ffc371,
+    #f9f871,
+    #6dd5a7,
+    #4facfe,
+    #a78bfa,
+    #ff5f6d
+  );
+  background-size: 300% 300%;
+  opacity: 0;
+  animation: rainbowWave 4.5s linear infinite;
+  animation-play-state: paused;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.button:hover .buttonFill {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes rainbowWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .buttonFill {
+    animation: none;
+  }
 }

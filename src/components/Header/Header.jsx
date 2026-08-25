@@ -35,7 +35,7 @@ function Header() {
       <header
         className={[
           styles.header,
-          isScrolled ? styles.scrolled : '',
+          isScrolled || isNavOpen ? styles.scrolled : '',
           isHidden ? styles.hidden : '',
         ].join(' ')}
       >
